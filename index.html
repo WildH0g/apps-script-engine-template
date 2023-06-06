@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./src/assets/output.css">
+    <title>Wurkspaces.dev Boilerplate</title>
+  </head>
+  <body>
+    <div class="float-right top-0 right-0 h-screen w-[300px] bg-gray-900 text-white flex flex-col p-8 transition-all duration-300 transform ">
+      <div class="flex flex-col justify-between h-full">
+        <div>
+          <h1 class="text-2xl font-bold mb-4">Wurkspaces.dev boilerplate</h1>
+          <p class="text-lg mb-6">Click the button below</p>
+          <button id="btn-active" class="bg-yellow-500 hover:bg-yellow-600 text-white py-2 px-4 rounded-full font-semibold transition-all duration-300 transform hover:scale-110">
+            Randomize colors
+          </button>
+          <button id="btn-disabled" disabled class="hidden bg-gray-500 text-white py-2 px-4 rounded-full font-semibold transition-all duration-300">
+            <svg class="animate-spin mr-2 h-4 w-4 inline-block text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+              <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+              <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 0012 20v-4a3.998 3.998 0 01-3.84-5.269l1.485-.132A2.002 2.002 0 0012 14v4c1.841 0 3.384-1.258 3.84-2.965l-1.485.132z"></path>
+            </svg>
+            Loading...
+          </button>          
+        </div>
+        <footer class="text-gray-500 text-sm self-end">(c) Wurkspaces.dev 2023</footer>
+      </div>
+    </div>
+    <script src="./src/app.ts" type="module"></script>
+  </body>
+</html>
