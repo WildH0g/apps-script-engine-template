@@ -1,4 +1,6 @@
-const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+import isJest from './isJest';
+const sleep = (ms: number) =>
+  new Promise((resolve) => setTimeout(resolve, isJest() ? 0 : ms));
 // eslint-disable-next-line @typescript-eslint/ban-types
 export default function getMocks(resolve: Function) {
   return {
