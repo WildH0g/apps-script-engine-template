@@ -1,5 +1,16 @@
 {
   "compilerOptions": {
     "lib": ["ES5", "dom"]
-  }
+  },
+  "include": [
+    "src/**/*",
+    "tests/**/*",
+    "dist/server/**/*",
+    "dist/app.ts",
+    ".eslintrc.cjs",
+    "vite.config.js",
+    "tailwind.config.js",
+    "prettier.config.js"
+  ],
+  "exclude": ["dist/ui/**/*"]
 }
