@@ -168,9 +168,9 @@
             <button :disabled="!isReady" class="btn btn-primary" @click="runRandomize();" x-cloak>
               <span
                 x-show="!isReady"
-                class="loading loading-dots loading-xs"
+                class="loading loading-dots loading-xs text-info"
               ></span
-              ><span x-text="isReady ? ready : loading">Button</span>
+              ><span x-text="isReady ? ready : loading" :class="isReady ? 'text-base' : 'text-info'">Button</span>
             </button>
           </div>
         </main>
