@@ -15,3 +15,7 @@
   cursor: pointer;
   background-color: #a0aec0;
 }
+
+[x-cloak] {
+  display: none;
+}

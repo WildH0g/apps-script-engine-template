@@ -165,7 +165,7 @@
           <div
             x-data="colorRandomizer"
           >
-            <button :disabled="!isReady" class="btn btn-primary" @click="runRandomize($data);">
+            <button :disabled="!isReady" class="btn btn-primary" @click="runRandomize();" x-cloak>
               <span
                 x-show="!isReady"
                 class="loading loading-dots loading-xs"
