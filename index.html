@@ -1,30 +1,190 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./src/assets/output.css">
+    <link rel="stylesheet" href="./src/assets/output.css" />
     <title>Wurkspaces.dev Boilerplate</title>
   </head>
   <body>
-    <div class="float-right top-0 right-0 h-screen w-[300px] bg-gray-900 text-white flex flex-col p-8 transition-all duration-300 transform ">
-      <div class="flex flex-col justify-between h-full">
-        <div>
-          <h1 class="text-2xl font-bold mb-4">Wurkspaces.dev boilerplate</h1>
-          <p class="text-lg mb-6">Click the button below</p>
-          <button id="btn-active" class="bg-yellow-500 hover:bg-yellow-600 text-white py-2 px-4 rounded-full font-semibold transition-all duration-300 transform hover:scale-110">
-            Randomize colors
-          </button>
-          <button id="btn-disabled" disabled class="hidden bg-gray-500 text-white py-2 px-4 rounded-full font-semibold transition-all duration-300">
-            <svg class="animate-spin mr-2 h-4 w-4 inline-block text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-              <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
-              <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 0012 20v-4a3.998 3.998 0 01-3.84-5.269l1.485-.132A2.002 2.002 0 0012 14v4c1.841 0 3.384-1.258 3.84-2.965l-1.485.132z"></path>
-            </svg>
-            Loading...
-          </button>          
+    <div class="float-right top-0 right-0 h-screen w-[300px]" data-theme="dark">
+      <div class="container flex flex-col min-h-screen">
+        <!-- HEADER START -->
+        <div class="navbar bg-base-100" x-data="{ showMenu: false }">
+          <div class="flex-none">
+            <!-- <button class="btn btn-square btn-ghost drawer-button"> -->
+            <label for="sidebar-drawer" class="drawer-button btn">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                class="inline-block w-5 h-5 stroke-current"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M4 6h16M4 12h16M4 18h16"
+                ></path>
+              </svg>
+              <!-- </button> -->
+            </label>
+          </div>
+          <div class="flex-1">
+            <a
+              href="https://wurkspaces.dev"
+              target="_blank"
+              class="link link-hover"
+              >Wurkspaces.dev</a
+            >
+          </div>
+          <!-- drop-down menu start -->
+          <div class="flex-none">
+            <button
+              class="btn btn-square btn-ghost"
+              @click="showMenu = !showMenu"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                class="inline-block w-5 h-5 stroke-current"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M5 12h.01M12 12h.01M19 12h.01M6 12a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0z"
+                ></path>
+              </svg>
+            </button>
+            <div
+              class="fixed right-0 top-14"
+              x-show="showMenu"
+              @click.away="showMenu = false"
+              x-transition
+            >
+              <ul class="menu bg-base-200 rounded-box">
+                <li>
+                  <a class="tooltip tooltip-right" data-tip="Home">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="h-5 w-5"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"
+                      />
+                    </svg>
+                  </a>
+                </li>
+                <li>
+                  <a class="tooltip tooltip-right" data-tip="Details">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="h-5 w-5"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                      />
+                    </svg>
+                  </a>
+                </li>
+                <li>
+                  <a class="tooltip tooltip-right" data-tip="Stats">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="h-5 w-5"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"
+                      />
+                    </svg>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <!-- drop-down menu end -->
         </div>
-        <footer class="text-gray-500 text-sm self-end">(c) Wurkspaces.dev 2023</footer>
+        <!-- HEADER END -->
+        <!-- DRAWER START -->
+        <div class="drawer drawer-end">
+          <input id="sidebar-drawer" type="checkbox" class="drawer-toggle" />
+          <div class="drawer-content">
+            <!-- Page content here -->
+          </div>
+          <div class="drawer-side">
+            <ul class="menu p-4 w-[300px] h-full bg-base-200 text-base-content">
+              <!-- Sidebar content here -->
+              <li>
+                <label for="sidebar-drawer" class="drawer-overlay"
+                  ><svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    strokeWidth="{1.5}"
+                    stroke="currentColor"
+                    class="w-6 h-6"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M6 18L18 6M6 6l12 12"
+                    />
+                  </svg>
+                </label>
+              </li>
+              <li><a>Settings ⚙️</a></li>
+              <li><a>Feedback 📧</a></li>
+            </ul>
+          </div>
+        </div>
+        <!-- DRAWER  -->
+
+        <!-- MAIN APP START -->
+        <main class="flex-grow mx-2">
+          <div
+            x-data="colorRandomizer"
+          >
+            <button :disabled="!isReady" class="btn btn-primary" @click="runRandomize($data);">
+              <span
+                x-show="!isReady"
+                class="loading loading-dots loading-xs"
+              ></span
+              ><span x-text="isReady ? ready : loading">Button</span>
+            </button>
+          </div>
+        </main>
+        <!-- MAIN APP end -->
+
+        <!-- FOOTER START -->
+        <footer class="footer footer-center p-4 bg-base-300 text-base-content">
+          <div>
+            <p>
+              Copyright © 2023 - All right reserved by Wurkspaces.dev O&Uuml;
+            </p>
+          </div>
+        </footer>
+        <!-- FOOTER END -->
       </div>
     </div>
     <script src="./src/app.ts" type="module"></script>

@@ -9,7 +9,7 @@
     "dist/app.ts",
     ".eslintrc.cjs",
     "vite.config.js",
-    "tailwind.config.js",
+    "tailwind.config.cjs",
     "prettier.config.js"
   ],
   "exclude": ["dist/ui/**/*"]

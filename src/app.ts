@@ -1,19 +1,25 @@
 import runGas from './runGas';
+import Alpine from 'alpinejs';
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-ignore
+window.Alpine = Alpine;
+
+Alpine.data('colorRandomizer', () => ({
+  ready: 'Randomize Colors',
+  loading: 'Loading...',
+  isReady: true,
+  async runRandomize() {
+    try {
+      this.isReady = false;
+      await runGas('randomizeCellColors');
+    } catch (error) {
+      alert(error);
+    } finally {
+      this.isReady = true;
+    }
+  },
+}));
+
+Alpine.start();
+
 console.log('hello world');
-
-function qs(selector: string) {
-  return document.querySelector(selector);
-}
-
-const [btnActive, btnDisabled] = [
-  qs('button#btn-active'),
-  qs('button#btn-disabled'),
-];
-
-btnActive.addEventListener('click', async () => {
-  btnActive.classList.add('hidden');
-  btnDisabled.classList.remove('hidden');
-  await runGas('randomizeCellColors');
-  btnActive.classList.remove('hidden');
-  btnDisabled.classList.add('hidden');
-});
