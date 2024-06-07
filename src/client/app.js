@@ -1,6 +1,6 @@
-import runGas from './runGas';
+import runGas from './runGas.js';
 import Alpine from 'alpinejs';
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+import './credits.js';
 // @ts-ignore
 window.Alpine = Alpine;
 
@@ -13,6 +13,7 @@ Alpine.data('colorRandomizer', () => ({
       this.isReady = false;
       await runGas('randomizeCellColors');
     } catch (error) {
+      console.error(error);
       alert(error);
     } finally {
       this.isReady = true;
@@ -21,5 +22,3 @@ Alpine.data('colorRandomizer', () => ({
 }));
 
 Alpine.start();
-
-console.log('hello world');

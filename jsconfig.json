@@ -1,16 +1,19 @@
 {
   "compilerOptions": {
-    "lib": ["ES5", "dom"]
+    "module": "ESNext",
+    "target": "ES6",
+    "checkJs": true,
+    "types": ["jest"],
   },
   "include": [
     "src/**/*",
     "tests/**/*",
     "dist/server/**/*",
-    "dist/app.ts",
+    "dist/app.jss",
     ".eslintrc.cjs",
     "vite.config.js",
     "tailwind.config.cjs",
     "prettier.config.js"
   ],
-  "exclude": ["dist/ui/**/*"]
+  "exclude": ["dist", "node_modules"]
 }
