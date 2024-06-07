@@ -1,10 +1,14 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 let polyfilled = false;
-import getMocks from './getMocks';
+import getMocks from './getMocks.js';
+
+/**
+ * Polyfills google.script.run with mock functions.
+ * @returns {Promise<void>}
+ */
 export default async function polyfillScriptRun() {
   if (polyfilled) return;
   polyfilled = true;
-  const _window: any =
+  const _window =
     'undefined' !== typeof window
       ? window
       : 'undefined' !== typeof globalThis
@@ -16,7 +20,7 @@ export default async function polyfillScriptRun() {
   if (!google.script || !google.script.run) {
     google.script = google.script || {};
     google.script.run = {
-      withSuccessHandler: (resolve) => {
+      withSuccessHandler: resolve => {
         const mocks = getMocks(resolve);
         return {
           withFailureHandler: () => ({

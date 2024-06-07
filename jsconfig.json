@@ -1,0 +1,18 @@
+{
+  "compilerOptions": {
+    "module": "NodeNext",
+    "target": "ES6",
+    "checkJs": true,
+    "types": ["jest", "google-apps-script"],
+    "moduleResolution": "NodeNext"
+  },
+  "include": [
+    "src/**/*",
+    "tests/**/*",
+    ".eslintrc.cjs",
+    "vite.config.js",
+    "tailwind.config.cjs",
+    "prettier.config.js"
+  ],
+  "exclude": ["dist", "node_modules"]
+}
