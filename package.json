@@ -3,6 +3,20 @@
   "private": true,
   "version": "1.0.0",
   "type": "module",
+  "main": "./dist/node/app.umd.cjs",
+  "module": "./dist/node/app.js",
+  "exports": {
+    ".": {
+      "import": "./dist/node/app.js",
+      "require": "./dist/node/app.umd.cjs"
+    }
+  },
+  "homepage": "https://github.com/WildH0g/wurkspaces-dev-gas-boilerplate.git",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/WildH0g/wurkspaces-dev-gas-boilerplate.git"
+  },
+  "keywords": [],
   "scripts": {
     "install:husky": "husky install && npx husky add .husky/pre-commit \"npm run format && npm t\"",
     "mkreadme": "npx readme-md-generator",
@@ -11,12 +25,16 @@
     "env:prod": "node ./env-mgt/set-env.js prod",
     "dev": "vite",
     "build:ui": "vite build",
-    "build:gas": "vite build --config vite.config.gas.js",
-    "build:push": "npm run build:ui && npm run build:gas && clasp push -f",
     "build:css:watch": "npx tailwindcss -i ./src/assets/input.css -o ./src/assets/output.css --watch",
-    "lint": "npx eslint src/**/*.js dist/*.js",
+    "build:gas": "vite build --config vite.config.gas.js",
+    "build:cp": "vite build --config vite.config.copy-paste.js",
+    "build:node": "vite build --config vite.config.node.js",
+    "build": "npm run build:ui && npm run build:gas",
+    "build:lib": "npm run build:cp && npm run build:node && npm run build:gas",
+    "push": "clasp push -f",
+    "lint": "npx eslint src/**/*.js",
     "lint:fix": "npm run lint -- --fix",
-    "prettier": "npx prettier src/**/*.js dist/*.js --check",
+    "prettier": "npx prettier src/**/*.js --check",
     "prettier:fix": "npm run prettier -- --write",
     "format": "npm run prettier:fix && npm run lint:fix",
     "test": "NODE_OPTIONS='--experimental-vm-modules' jest",
@@ -39,3 +57,4 @@
     "alpinejs": "^3.12.2"
   }
 }
+

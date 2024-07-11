@@ -6,6 +6,6 @@ export default defineConfig({
   plugins: [viteSingleFile()],
   build: {
     minify: true,
-    outDir: resolve(__dirname, 'dist/ui'),
+    outDir: resolve(__dirname, 'dist/gas/ui'),
   },
 });

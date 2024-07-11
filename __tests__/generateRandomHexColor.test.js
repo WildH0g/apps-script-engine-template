@@ -1,5 +1,5 @@
 /* eslint-env jest */
-import { generateRandomHexColor } from '../src/server/server';
+import { generateRandomHexColor } from '../src/server/helpers.js';
 
 describe('generateRandomHexColor', () => {
   it('should generate a 2D array of random hex colors with the correct dimensions', () => {

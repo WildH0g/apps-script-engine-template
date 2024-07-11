@@ -1,15 +1,14 @@
 {
   "compilerOptions": {
-    "module": "ESNext",
+    "module": "NodeNext",
     "target": "ES6",
     "checkJs": true,
-    "types": ["jest"],
+    "types": ["jest", "google-apps-script"],
+    "moduleResolution": "NodeNext"
   },
   "include": [
     "src/**/*",
     "tests/**/*",
-    "dist/server/**/*",
-    "dist/app.jss",
     ".eslintrc.cjs",
     "vite.config.js",
     "tailwind.config.cjs",

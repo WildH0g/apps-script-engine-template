@@ -1,6 +1,12 @@
 # History
 
-## Versin 1.0.0 | 2024-06-07
+## Version 1.1.0 | 2024-06-07
+
+- Upgrade Vite plugin to use ASM to generate the `dist/exports.js` file
+- Bundle all server-side and client-side code
+- Include library buliding mode, supporting NPM and copy & paste
+
+## Version 1.0.0 | 2024-06-07
 
 - Migrate from TypeScript to JSDoc
 - Add a generic favicon for local development

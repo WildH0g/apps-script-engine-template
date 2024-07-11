@@ -1,4 +1,29 @@
 /**
+ * Genearates a two-dimensional array of random hexadecimal colors
+ * @param {number} numRows Number of rows in the array
+ * @param {number} numCols Number of columns in each row
+ * @returns {string[][]} Two-dimensional array of hexadecimal colors
+ */
+export function generateRandomHexColor(numRows, numCols) {
+  return Array.from({ length: numRows }, () =>
+    Array.from({ length: numCols }, getRandomColor)
+  );
+}
+
+/**
+ * Generates a random hexadecimal color
+ * @returns {string} Random hexadecimal color
+ */
+export function getRandomColor() {
+  const letters = '0123456789ABCDEF';
+  let color = '#';
+  for (let i = 0; i < 6; i++) {
+    color += letters[Math.floor(Math.random() * 16)];
+  }
+  return color;
+}
+
+/**
  * @typedef {Object} GASClass
  * @property {typeof DocumentApp | typeof FormApp | typeof SlidesApp | typeof SpreadsheetApp} gasClass - The class of the Google Apps Script app.
  */
@@ -12,7 +37,7 @@
  * Get the context of the Google Apps Script app. Works in editors: Docs, Forms, Slides, and Sheets.
  * @returns {{gasClass: GASClass, name: AppName, ui: GoogleAppsScript.Base.Ui}}
  */
-function getContext() {
+export function getContext() {
   const contexts = [
     { gasClass: DocumentApp, name: 'DocumentApp' },
     { gasClass: FormApp, name: 'FormApp' },
@@ -34,28 +59,4 @@ function getContext() {
     }
   });
   return context;
-}
-
-/**
- * Runs when the Google Apps Script app is opened.
- */
-function onOpen() {
-  const ui = getContext().ui;
-  ui.createMenu('👨‍🏭 Wurkspaces.dev')
-    .addItem('☕🍽️ Boilerplate', 'showSidebar')
-    .addToUi();
-}
-
-/**
- * Shows the sidebar in the Google Apps Script app.
- */
-function showSidebar() {
-  SpreadsheetApp.getUi().showSidebar(
-    HtmlService.createHtmlOutputFromFile('ui/index')
-  );
-}
-
-function randomizeCellColors() {
-  /*eslint no-undef: "off"*/
-  lib.randomizeCellColors();
 }

@@ -1,6 +1,5 @@
-/*eslint no-constant-condition: "off"*/
-// @ts-ignore
-if (false) require('@types/google-apps-script');
+import { generateRandomHexColor, getContext } from './helpers.js';
+
 /**
  * Randomizes the background color of cells in the range A1:E20
  * @returns {void}
@@ -18,26 +17,20 @@ export function randomizeCellColors() {
 }
 
 /**
- * Genearates a two-dimensional array of random hexadecimal colors
- * @param {number} numRows Number of rows in the array
- * @param {number} numCols Number of columns in each row
- * @returns {string[][]} Two-dimensional array of hexadecimal colors
+ * Runs when the Google Apps Script app is opened.
  */
-export function generateRandomHexColor(numRows, numCols) {
-  return Array.from({ length: numRows }, () =>
-    Array.from({ length: numCols }, getRandomColor)
-  );
+export function onOpen() {
+  const ui = getContext().ui;
+  ui.createMenu('👨‍🏭 Wurkspaces.dev')
+    .addItem('☕🍽️ Boilerplate', 'showSidebar')
+    .addToUi();
 }
 
 /**
- * Generates a random hexadecimal color
- * @returns {string} Random hexadecimal color
+ * Shows the sidebar in the Google Apps Script app.
  */
-function getRandomColor() {
-  const letters = '0123456789ABCDEF';
-  let color = '#';
-  for (let i = 0; i < 6; i++) {
-    color += letters[Math.floor(Math.random() * 16)];
-  }
-  return color;
+export function showSidebar() {
+  SpreadsheetApp.getUi().showSidebar(
+    HtmlService.createHtmlOutputFromFile('ui/index')
+  );
 }

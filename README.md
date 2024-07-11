@@ -1,13 +1,13 @@
 # Welcome to the boilerplate for Wurkspaces.dev's Google Apps Script projects 👋
 
-![Version](https://img.shields.io/badge/version-1.0.0-blue.svg?cacheSeconds=2592000)
+![Version](https://img.shields.io/badge/version-1.1.0-blue.svg?cacheSeconds=2592000)
 
 > Boilerplate set up for Google Apps Script projects with Wurkspaces.dev stack
 
 ## Install
 
 ```sh
-npm i && npm run install:husky
+npm i && npm run install:husky && npm run build
 ```
 
 ## Running the local dev server with Vite
