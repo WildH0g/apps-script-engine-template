@@ -25,7 +25,7 @@
     "env:prod": "node ./env-mgt/set-env.js prod",
     "dev": "vite",
     "build:ui": "vite build",
-    "build:css:watch": "npx tailwindcss -i ./src/assets/input.css -o ./src/assets/output.css --watch",
+    "build:css:watch": "npx tailwindcss -i ./src/client/assets/input.css -o ./src/client/assets/output.css --watch",
     "build:gas": "vite build --config vite.config.gas.js",
     "build:cp": "vite build --config vite.config.copy-paste.js",
     "build:node": "vite build --config vite.config.node.js",
