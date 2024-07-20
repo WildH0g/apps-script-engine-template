@@ -2,7 +2,7 @@
  * Genearates a two-dimensional array of random hexadecimal colors
  * @param {number} numRows Number of rows in the array
  * @param {number} numCols Number of columns in each row
- * @returns {string[][]} Two-dimensional array of hexadecimal colors
+ * @returns {import("../../types/colors.js").HexColor[][]} Two-dimensional array of hexadecimal colors
  */
 export function generateRandomHexColor(numRows, numCols) {
   return Array.from({ length: numRows }, () =>
@@ -12,7 +12,7 @@ export function generateRandomHexColor(numRows, numCols) {
 
 /**
  * Generates a random hexadecimal color
- * @returns {string} Random hexadecimal color
+ * @returns {import("../../types/colors.js").HexColor} Random hexadecimal color
  */
 export function getRandomColor() {
   const letters = '0123456789ABCDEF';

@@ -12,7 +12,8 @@
     ".eslintrc.cjs",
     "vite.config.js",
     "tailwind.config.cjs",
-    "prettier.config.js"
+    "prettier.config.js",
+    "types"
   ],
   "exclude": ["dist", "node_modules"]
 }
