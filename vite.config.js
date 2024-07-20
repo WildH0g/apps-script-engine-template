@@ -5,7 +5,7 @@ import { resolve } from 'path';
 export default defineConfig({
   plugins: [viteSingleFile()],
   build: {
-    minify: true,
+    minify: false,
     outDir: resolve(__dirname, 'dist/gas/ui'),
   },
 });
