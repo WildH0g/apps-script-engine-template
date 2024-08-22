@@ -1,7 +1,7 @@
 {
   "name": "wurkspaces-dev-boilerplate",
   "private": true,
-  "version": "1.0.0",
+  "version": "1.2.0",
   "type": "module",
   "main": "./dist/node/app.umd.cjs",
   "module": "./dist/node/app.js",

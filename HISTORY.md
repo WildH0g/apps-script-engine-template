@@ -1,5 +1,10 @@
 # History
 
+## Version 1.2.0 | 2024-08-22
+
+- Write full documentation in README
+- Variable name change in environment management dependency
+
 ## Version 1.1.0 | 2024-06-07
 
 - Upgrade Vite plugin to use ASM to generate the `dist/exports.js` file
