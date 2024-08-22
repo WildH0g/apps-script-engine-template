@@ -16,21 +16,21 @@
 export default {
   dev: [
     {
-      filenName: '.clasp.json',
+      fileName: '.clasp.json',
       filePath: 'env-mgt/dev',
       copyTo: './'
     }
   ],
   uat: [
     {
-      filenName: '.clasp.json',
+      fileName: '.clasp.json',
       filePath: 'env-mgt/uat',
       copyTo: './'
     }
   ],
   prod: [
     {
-      filenName: '.clasp.json',
+      fileName: '.clasp.json',
       filePath: 'env-mgt/prod',
       copyTo: './'
     }

@@ -12,9 +12,9 @@ import path from 'path';
   let errors = 0;
 
   settings.forEach((setting) => {
-    const { filenName, filePath, copyTo } = setting;
-    const srcPath = path.join(process.cwd(), filePath, filenName);
-    const copyPath = path.join(process.cwd(), copyTo, filenName);
+    const { fileName, filePath, copyTo } = setting;
+    const srcPath = path.join(process.cwd(), filePath, fileName);
+    const copyPath = path.join(process.cwd(), copyTo, fileName);
 
     try {
       fs.copyFileSync(srcPath, copyPath);
