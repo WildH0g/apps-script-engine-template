@@ -23,6 +23,7 @@
     "env:dev": "node ./env-mgt/set-env.js dev",
     "env:uat": "node ./env-mgt/set-env.js uat",
     "env:prod": "node ./env-mgt/set-env.js prod",
+    "env:save": "node ./env-mgt/save-env.js",
     "dev": "vite",
     "build:ui": "vite build",
     "build:css:watch": "npx tailwindcss -i ./src/client/assets/input.css -o ./src/client/assets/output.css --watch",
