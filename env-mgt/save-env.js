@@ -12,9 +12,9 @@ import path from 'path';
   let errors = 0;
 
   settings.forEach((setting) => {
-    const { fileName, filePath, copyTo } = setting;
-    const srcPath = path.join(process.cwd(), filePath, fileName);
-    const copyPath = path.join(process.cwd(), copyTo, fileName);
+    const { fileName, filePath, copyTo: copyFrom } = setting;
+    const copyPath = path.join(process.cwd(), filePath, fileName);
+    const srcPath  = path.join(process.cwd(), copyFrom, fileName);
 
     try {
       fs.copyFileSync(srcPath, copyPath);
@@ -24,7 +24,7 @@ import path from 'path';
     }
 
     const message = !errors
-      ? '✅ Environment configured successfully'
+      ? '✅ Environment saved successfully'
       : `❗ Environment configured with ${errors}/${settings.length} errors`;
     
     console.log(message);
