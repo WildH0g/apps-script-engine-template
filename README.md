@@ -134,10 +134,9 @@ Below is the full template structure. The main components include the `src` fold
 ├── src
 │   ├── client
 │   │   ├── assets
-│   │   │   ├── favicon.ico
-│   │   │   ├── input.css
-│   │   │   └── output.css
+│   │   │   └── favicon.ico
 │   │   ├── app.js
+│   │   ├── styles.css
 │   │   ├── credits.js
 │   │   ├── getMocks.js
 │   │   ├── isJest.js
@@ -168,6 +167,7 @@ Below is the full template structure. The main components include the `src` fold
 ├── package.json
 ├── package-lock.json
 ├── prettier.config.cjs
+├── postcss.config.cjs
 ├── .prettierignore
 ├── INSTRUCTIONS.md
 ├── tailwind.config.cjs
@@ -257,7 +257,7 @@ The `package.json` file contains scripts that allow you to switch environments:
 
 ```json
 {
-  "scripts": {    
+  "scripts": {
     "env:dev": "node ./env-mgt/set-env.js dev",
     "env:uat": "node ./env-mgt/set-env.js uat",
     "env:prod": "node ./env-mgt/set-env.js prod"
@@ -298,17 +298,7 @@ This template addresses these limitations by allowing front-end development to h
 
 ### Running the Local Development Server with Vite
 
-To run the Vite server and the Tailwind server in parallel, use different terminal windows:
-
-```sh
-# Vite server
-npm run dev
-```
-
-```sh
-# Tailwind server
-npm run build:css:watch
-```
+To run the Vite server, run the `npm run dev` command. This will start the Vite server. The server will run on port 5173 by default.
 
 ### `google.script.run` Promisified
 

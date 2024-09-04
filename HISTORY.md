@@ -1,5 +1,13 @@
 # History
 
+## Version 1.3.0 | 2024-08-22
+
+- Automatic compilation of TailwindCSS
+- Added PostCSS and Autoprefixer
+- Upgrade Vite to v5
+- Upgrade DaisyUI to v4
+- Added dist folder to .gitignore
+
 ## Version 1.2.0 | 2024-08-22
 
 - Write full documentation in README
