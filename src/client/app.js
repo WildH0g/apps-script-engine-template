@@ -1,6 +1,7 @@
-import runGas from './runGas.js';
 import Alpine from 'alpinejs';
 import './credits.js';
+import runGas from './runGas.js';
+import './styles.css';
 // @ts-ignore
 window.Alpine = Alpine;
 
