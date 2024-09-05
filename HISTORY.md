@@ -1,5 +1,11 @@
 # History
 
+## Version 1.3.1 | 2024-09-05
+
+- Add support for rest parameters in exported functions
+- Add code of conduct
+- Add contributing guide
+
 ## Version 1.3.0 | 2024-09-04
 
 - Automatic compilation of TailwindCSS

@@ -1,6 +1,6 @@
 # Welcome to the Apps Script Engine Template! 👋
 
-![Version](https://img.shields.io/badge/version-1.2.0-blue.svg?cacheSeconds=2592000)
+![Version](https://img.shields.io/badge/version-1.3.1-blue.svg?cacheSeconds=2592000)
 
 >  Kickstart your Google Apps Script projects with this robust, highly configurable template that includes essential development tools right out of the box.
 
