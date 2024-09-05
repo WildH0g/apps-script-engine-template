@@ -24,7 +24,8 @@ var lib_ = function(exports) {
     let ui = null;
     let context = null;
     contexts.forEach((_context) => {
-      if (null !== ui) return;
+      if (null !== ui)
+        return;
       try {
         ui = _context.gasClass.getUi();
         context = _context;
