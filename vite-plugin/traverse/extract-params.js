@@ -12,6 +12,8 @@ export default function extractParameters(params) {
       param.left.type === 'Identifier'
     ) {
       return { name: param.left.name, defaultValue: param.right.value };
+    } else if (param.type === 'RestElement') {
+      return { name: `...${param.argument.name}` };
     }
     return { name: undefined };
   });
