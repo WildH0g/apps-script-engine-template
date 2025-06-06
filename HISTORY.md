@@ -1,6 +1,6 @@
 # History
 
-## Version 1.3.1 | 2025-06-06
+## Version 1.3.2 | 2025-06-06
 
 - Update dependencies
 - Update formatting
