@@ -41,6 +41,8 @@
     "tree": "tree -I 'node_modules' -I '.git' --dirsfirst -a"
   },
   "devDependencies": {
+    "@babel/parser": "^7.27.0",
+    "@babel/traverse": "^7.27.0",
     "@tailwindcss/typography": "^0.5.15",
     "@types/alpinejs": "^3.13.10",
     "@types/google-apps-script": "^1.0.83",
@@ -55,7 +57,7 @@
     "postcss": "^8.4.45",
     "prettier": "^3.3.3",
     "tailwindcss": "^3.4.10",
-    "vite": "^5.4.3",
+    "vite": "^6.3.5",
     "vite-plugin-singlefile": "^2.0.2"
   },
   "dependencies": {

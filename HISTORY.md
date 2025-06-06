@@ -1,5 +1,10 @@
 # History
 
+## Version 1.3.1 | 2025-06-06
+
+- Update dependencies
+- Update formatting
+
 ## Version 1.3.1 | 2024-09-05
 
 - Add support for rest parameters in exported functions
