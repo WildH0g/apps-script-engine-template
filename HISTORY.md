@@ -4,6 +4,7 @@
 
 - Update dependencies
 - Update formatting
+- Migrate from Jest to Vitest
 
 ## Version 1.3.1 | 2024-09-05
 
