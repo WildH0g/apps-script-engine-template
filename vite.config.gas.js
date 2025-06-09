@@ -8,7 +8,7 @@ export default defineConfig({
     minify: false,
     outDir: resolve(process.cwd(), 'dist/gas/server'),
     lib: {
-      entry: resolve(process.cwd(), 'src/server/server.js'),
+      entry: resolve(process.cwd(), 'src/app.js'),
       name: 'lib_',
       fileName: 'server',
       formats: ['iife'],
