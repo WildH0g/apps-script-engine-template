@@ -1,8 +1,8 @@
 import Alpine from 'alpinejs';
 import './credits.js';
-import runGas from './runGas.js';
+import runGas from './lib/runGas.js';
 import './styles.css';
-// @ts-ignore
+// @ts-expect-error TS2322: Type 'Alpine' is not assignable to type 'typeof Alpine'. This is necessary because Alpine's global type isn't perfectly aligned with its module export, but for practical purposes, assigning it to window works correctly.
 window.Alpine = Alpine;
 
 Alpine.data('colorRandomizer', () => ({

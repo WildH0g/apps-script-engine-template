@@ -18,7 +18,7 @@
      - [External](#external)
      - [Custom](#custom)
    - [Formatting](#formatting)
-   - [Run Tests](#run-tests)
+   - [Unit Testing](#unit-testing)
    - [Git Hooks](#git-hooks)
 6. [Managing Environments](#managing-environments)
    - [Environment Configuration](#environment-configuration)
@@ -28,7 +28,7 @@
    - [The Stack](#the-stack)
    - [Running the Local Development Server with Vite](#running-the-local-development-server-with-vite)
    - [`google.script.run` Promisified](#googlescriptrun-promisified)
-   - [Mocking Server-Side Apps Script Functions](#mocking-server-side-apps-script-functions)
+   - [Robust Mocking of Server-Side Apps Script Functions](#robust-mocking-of-server-side-apps-script-functions)
    - [Building and Deploying](#building-and-deploying)
 8. [Server-Side Google Apps Script Code](#server-side-google-apps-script-code)
    - [The Philosophy](#the-philosophy-1)
@@ -51,9 +51,10 @@ The template is set up to bundle front-ends built with `HtmlService`, back-end A
 
 - **ES6 Modules in Apps Script:** Work seamlessly with modern JavaScript.
 - **Fast Local Development:** Develop both client-side and server-side code locally with mock functions and promisified calls to `google.script.run`.
-- **Support for Front-End Frameworks:** Comes with Alpine.js and Tailwind CSS (with the Daisy UI plugin) by default. TypeScript support is also easy to add.
+- **Support for Front-End Frameworks:** Comes with Alpine.js and Tailwind CSS (with the Daisy UI plugin) by default. Full TypeScript support is available.
 - **NPM Modules Support:** Integrate NPM modules for both front-end and back-end code.
-- **Unit Testing:** Set up with Jest to ensure your code works as expected.
+- **Robust Mocking:** Comprehensive mocking for `google.script.run`, including success and failure handlers, for efficient local development.
+- **Unit Testing:** Set up with Vitest to ensure your code works as expected.
 - **CI/CD Workflows:** Integrate with GitHub Actions or Cloud Build for robust, automated deployments.
 - **Optimized Deployments:** Streamline the deployment process for server-side code, library code, and copy-and-paste code.
 - **Environment Management:** Built-in support for different environments (DEV, UAT, PROD) with specific configurations and environment files for each.
@@ -68,17 +69,15 @@ git --version
 clasp --version
 ```
 
-Yes, we know clasp is no longer maintained; when it breaks, we'll have our own solution ready.
-
 ## Installation
 
-To install the template, run the following command with an optional directory name:
+To install the template, run the following command with an optional directory name and a `--ts` flag for TypeScript support:
 
 ```shell
-npx apps-script-engine [directory-name]
+npx apps-script-engine [directory-name] [--ts]
 ```
 
-If no directory name is provided, it will default to `./apps-script-project`.
+If no directory name is provided, it will default to `./apps-script-project`. If the `--ts` flag is used, the project will be initialized with TypeScript.
 
 To create a new Apps Script project in the current directory:
 
@@ -138,9 +137,13 @@ Below is the full template structure. The main components include the `src` fold
 │   │   ├── app.js
 │   │   ├── styles.css
 │   │   ├── credits.js
-│   │   ├── getMocks.js
-│   │   ├── isJest.js
-│   │   └── runGas.js
+│   │   └── lib
+│   │       ├── mocking
+│   │       │   ├── index.js
+│   │       │   ├── is-jest.js
+│   │       │   ├── mock-strategies.js
+│   │       │   └── polyfill-script-run.js
+│   │       └── runGas.js
 │   ├── server
 │   │   ├── helpers.js
 │   │   └── server.js
@@ -190,6 +193,7 @@ The Apps Script Engine Template uses the following external and custom dependenc
 - `@types/google-apps-script`: Type definitions for Apps Script.
 - `clasp`: For pushing the code to your Apps Script project.
 - `vite-plugin-singlefile`: Compiles HTML/CSS/JavaScript into a single file.
+- `vitest`: For running unit tests.
 
 #### Custom
 
@@ -206,7 +210,7 @@ npm run format
 
 ### Run Tests
 
-To run the tests:
+To run the unit tests using Vitest:
 
 ```sh
 npm t
@@ -308,20 +312,30 @@ Instead of using `google.script.run.withSuccessHandler(onSuccess).withFailureHan
 await runGas('getDataFromSheet', ['Statistics']);
 ```
 
-### Mocking Server-Side Apps Script Functions
+### Robust Mocking of Server-Side Apps Script Functions
 
-The mocks for server-side Apps Script functions are defined in the `src/client/getMocks.js` file within the `getMocks()` function. The return value of this function is an object containing mocked functions. Use the `resolve()` callback to resolve the mocked value. Ensure that the mocked functions are named the same as their real counterparts. Use the `sleep` function to emulate delays. The boilerplate function includes this code:
+The template provides a robust mocking mechanism for `google.script.run` calls, allowing you to simulate both successful responses and failures during local development. Mocks are defined in `src/client/mocks/default-mocks.js` (or `src/client/mocks/default-mocks.ts` for TypeScript projects) within the `defaultMocks()` function. This function returns an object where keys are the Apps Script function names and values are mock implementations.
+
+Each mock function receives `resolve` and `reject` callbacks, enabling you to simulate success or failure scenarios. Use `resolve(value)` to return a successful result and `reject(error)` to simulate an error. The `sleep` function is available to emulate network delays.
+
+Example of a mock function:
 
 ```js
-export default function getMocks(resolve) {
+export default function defaultMocks(resolve, reject, sleep) {
   return {
     async randomizeCellColors() {
       await sleep(1000);
       resolve(true);
     },
+    async throwError() {
+      await sleep(500);
+      reject(new Error('Simulated Apps Script error!'));
+    },
   };
 }
 ```
+
+This comprehensive mocking setup ensures that your client-side code can be thoroughly tested locally under various server-side response conditions.
 
 ### Building and Deploying
 

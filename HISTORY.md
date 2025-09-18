@@ -1,5 +1,14 @@
 # History
 
+## Version 2.0.0 | 2025-09-18
+
+- Migrate `src/client/runGas.js` to `src/client/lib/runGas.js`.
+- TypeScript support and the `--ts` flag for installation.
+- More robust mocking for `google.script.run`, including success and failure handling.
+- Updated table of contents in `README.md`.
+- Explicit mention of Vitest as the testing framework.
+- Creation of `GEMINI.md`
+
 ## Version 1.3.2 | 2025-06-06
 
 - Update dependencies

@@ -53,7 +53,7 @@ export function getContext() {
       context = _context;
       context.ui = ui;
       console.log(`Selected context: ${_context.name}`);
-    } catch (err) {
+    } catch {
       ui = null;
       context = null;
     }

@@ -1,6 +1,6 @@
 # Project Overview
 
-This project is a Node-powered template designed for developing Google Apps Script (GAS) projects. It provides a robust development environment that addresses common challenges in GAS development, such as ES6 module support, local development for client-side and server-side code, NPM module integration, unit testing, and CI/CD workflows.
+This project is a Node-powered template designed for developing Google Apps Script (GAS) projects. It provides a robust development environment that addresses common challenges in GAS development, such as ES6 module support, TypeScript integration, local development for client-side and server-side code, NPM module integration, comprehensive mocking for `google.script.run` (including success and failure scenarios), unit testing, and CI/CD workflows.
 
 **Key Technologies:**
 
@@ -19,10 +19,10 @@ The template supports building client-side `HtmlService` code, server-side Googl
 
 ## Installation
 
-To install the template, use `npx apps-script-engine [directory-name]`. For example, to create a new project in the current directory:
+To install the template, use `npx apps-script-engine [directory-name] [--ts]`. For example, to create a new project in the current directory:
 
 ```bash
-npx apps-script-engine .
+npx apps-script-engine . --ts
 ```
 
 After installation, ensure `npm`, `git`, and `clasp` are installed globally.
