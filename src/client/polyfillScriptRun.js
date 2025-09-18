@@ -19,15 +19,25 @@ export default async function polyfillScriptRun() {
 
   if (!google.script || !google.script.run) {
     google.script = google.script || {};
-    google.script.run = {
-      withSuccessHandler: resolve => {
-        const mocks = getMocks(resolve);
-        return {
-          withFailureHandler: () => ({
-            ...mocks,
-          }),
-        };
+    google.script = google.script || {};
+    let successHandler = null;
+    let failureHandler = null;
+
+    const mockRun = {
+      withSuccessHandler: handler => {
+        successHandler = handler;
+        return mockRun;
       },
+      withFailureHandler: handler => {
+        failureHandler = handler;
+        return mockRun;
+      },
+      ...getMocks(
+        result => successHandler && successHandler(result),
+        error => failureHandler && failureHandler(error)
+      ),
     };
+    google.script.run = mockRun;
   }
 }
+
