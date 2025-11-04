@@ -4,7 +4,8 @@
     "target": "ES6",
     "allowJs": true,
     "types": ["jest", "google-apps-script"],
-    "moduleResolution": "NodeNext"
+    "moduleResolution": "NodeNext",
+    "allowImportingTsExtensions": true
   },
   "include": [
     "src/**/*",
